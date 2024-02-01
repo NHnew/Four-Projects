@@ -66,41 +66,6 @@ $(document).ready(function () {
         updateHomeH1();
     });
 
-
-    let h1Text = $("#home .textbox h1").text();
-    let index = 0;
-
-    function writeText() {
-        if (index < h1Text.length) {
-            $("#home .textbox h1").text(h1Text.substring(0, index + 1));
-            index++;
-            setTimeout(writeText, 100);
-        } else {
-            setTimeout(eraseText, 1000);
-        }
-    }
-
-    function eraseText() {
-        if (index >= 0) {
-            $("#home .textbox h1").text(h1Text.substring(0, index));
-            index--;
-            setTimeout(eraseText, 50);
-        } else {
-            index = 0;
-            setTimeout(writeText, 500);
-        }
-    }
-
-
-    function updateHomeH1() {
-        let currentLanguage = $('#language').text();
-        let translatedText = languageMappings[currentLanguage]['homeH1'];
-
-        $("#home .textbox h1").text(translatedText);
-        h1Text = translatedText;
-    }
-
-    writeText();
 });
 
 
